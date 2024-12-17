@@ -20,7 +20,7 @@ namespace MovieReservationAPI.Controllers
              _context = context;//assigning the injected database for private variable
         }
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<MovieDto>>>GetMovies()
+        public async Task<ActionResult<IEnumerable<MovieDtoo>>>GetMovies()
         {//fetch all movies from the database along wth the reservation
             var movies=await _context.Movies
                 .Include(m=>m .Reservations)//include related reservations
@@ -28,7 +28,7 @@ namespace MovieReservationAPI.Controllers
         
         
         //convert the fetched movie to dtos
-        var moviedtos=movies.Select(m=> new MovieDto
+        var moviedtos=movies.Select(m=> new MovieDtoo
         {
             Id=m.Id,//mapping its properties
             Title=m.Title,
@@ -36,7 +36,7 @@ namespace MovieReservationAPI.Controllers
             DurationInMinutes=m.DurationInMinutes,
             reservations=m.Reservations.Select(r=>new ReservationDto
             {
-                Id=r.Id,
+                Id=r.MovieId,
                 SeatNumber=r.SeatNumber,
                 ReservationDate=r.ReservationDate
             }).ToList()

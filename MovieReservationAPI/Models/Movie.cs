@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace MovieReservationAPI.Model
 {   //this is the parent model
@@ -13,7 +14,7 @@ namespace MovieReservationAPI.Model
         [Required]
         public int DurationInMinutes { get; set; }
 
-
+        
         //child
         public ICollection<Reservation> Reservations { get; set; } = new List<Reservation>();
     }
