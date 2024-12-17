@@ -24,7 +24,11 @@
 
   <ItemGroup>
     <Folder Include="Controllers\" />
+<<<<<<< HEAD
     <Folder Include="Migrations\" />
+=======
+    <Folder Include="Migration\" />
+>>>>>>> 8716cac3444081b002ee269843d0212ba2be96f8
   </ItemGroup>
 
 </Project>
